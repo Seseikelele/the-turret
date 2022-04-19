@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+opencv-contrib-python = "*"
+click = "*"
+pillow = "*"
+pyzmq = "*"
+numpy = "*"
+
+[dev-packages]
+ipykernel = "*"
+matplotlib = "*"
+mypy = "*"
+turret = {editable = true, path = "."}
+isort = "*"
+
+[requires]
+python_version = "3.9"
