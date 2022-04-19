@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-opencv-contrib-python = "*"
+opencv-contrib-python = "==4.5.1.48"
 click = "*"
 pillow = "*"
 pyzmq = "*"
 numpy = "*"
+python-ulid = "*"
 
 [dev-packages]
 ipykernel = "*"

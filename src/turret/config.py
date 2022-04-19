@@ -1,6 +1,7 @@
 from enum import Enum
 
 WINDOW_NAME = 'the_turret'
+CROSSHAIR_RESIZE_STEP = 10
 
 class Button(Enum):
 	ARROW_UP = 65362
