@@ -36,6 +36,3 @@ class TurretClient():
 		buffer = memoryview(message)
 		np_array = np.frombuffer(buffer, dtype=metadata['dtype'])
 		return np_array.reshape(metadata['shape'])
-
-	def send_input(self, controls: Controls) -> None:
-		self.socket.send_json(asdict(controls))

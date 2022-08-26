@@ -1,0 +1,5 @@
+gpiozero
+numpy
+opencv-contrib-python==4.5.1.48
+pyzmq
+rpi-gpio

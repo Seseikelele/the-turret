@@ -30,7 +30,6 @@ class TRACKER_STATE(Enum):
 
 class VideoCapture():
 	def __init__(self, device_id: int=0) -> None:
-		super().__init__()
 		self.cap = cv2.VideoCapture(device_id)
 		# self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
 		# self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)

@@ -1,0 +1,14 @@
+[Unit]
+Description=Video Server
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+WorkingDirectory=/home/seseikelele/dev/the-turret/pi
+ExecStart=python3 frame_service.py
+
+[Install]
+WantedBy=default.target
