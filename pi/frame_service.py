@@ -3,7 +3,6 @@ import logging
 import traceback
 import zmq
 import cv2
-import numpy
 
 ZMQ_INTERFACE = 'tcp://0.0.0.0:42000'
 TOKEN = 'dupa'
@@ -11,7 +10,8 @@ MAGIC_WORD = 'send me a frame, please'
 
 logging.basicConfig(
 	format='[%(asctime)s] %(levelname)s-> %(message)s',
-	datefmt='%T'
+	datefmt='%T',
+	level=logging.INFO
 )
 logger = logging.getLogger(__name__)
 
@@ -26,6 +26,9 @@ def listen_for_requests():
 	zmq_socket:zmq.Socket = zmq_context.socket(zmq.REP)
 	zmq_socket.bind(ZMQ_INTERFACE)
 	cv2_capture = cv2.VideoCapture(0)
+	cv2_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+	cv2_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+	cv2_capture.set(cv2.CAP_PROP_FPS, 60)
 	print_capture_info(cv2_capture)
 	try:
 		process_requests(zmq_socket, cv2_capture)
@@ -39,7 +42,7 @@ def print_capture_info(capture: cv2.VideoCapture):
 	fps = capture.get(cv2.CAP_PROP_FPS)
 	width = capture.get(cv2.CAP_PROP_FRAME_WIDTH)
 	height = capture.get(cv2.CAP_PROP_FRAME_HEIGHT)
-	logger.debug('Capture device initialized: %dx%d@%dfps', width, height, fps)
+	logger.info('Capture device initialized: %dx%d@%dfps', width, height, fps)
 
 def process_requests(zmq_socket: zmq.Socket, cv2_capture: cv2.VideoCapture):
 	while True:
