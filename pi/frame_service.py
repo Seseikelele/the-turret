@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import logging
 import traceback
-import zmq
+
 import cv2
+import zmq
 
 ZMQ_INTERFACE = 'tcp://0.0.0.0:42000'
 TOKEN = 'dupa'

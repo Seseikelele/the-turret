@@ -6,8 +6,8 @@ import click
 import cv2
 import numpy as np
 import zmq
-from ulid import ULID
 from PIL import Image, ImageDraw, ImageFont
+from ulid import ULID
 
 from turret.common import Controls
 from turret.communication import TurretClient, TurretServer
